@@ -15,7 +15,7 @@ using System.Data.SQLite;
 namespace Flonkerton
 {
     public partial class Inicio_Sesion : Form
-    {
+    {  
         string dbConnectionString = @"Data Source=base.sqlite; Version=3;";
         public Inicio_Sesion()
         {
