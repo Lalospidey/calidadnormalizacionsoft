@@ -56,18 +56,6 @@
     <Compile Include="Consulta.Designer.cs">
       <DependentUpon>Consulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consulta_Fideos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Consulta_Fideos.Designer.cs">
-      <DependentUpon>Consulta_Fideos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Consulta_Galletas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Consulta_Galletas.Designer.cs">
-      <DependentUpon>Consulta_Galletas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inicio_Sesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,40 +68,16 @@
     <Compile Include="Modificacion.Designer.cs">
       <DependentUpon>Modificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modificacion_Fideos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modificacion_Fideos.Designer.cs">
-      <DependentUpon>Modificacion_Fideos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Modificacion_galletas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modificacion_galletas.Designer.cs">
-      <DependentUpon>Modificacion_galletas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Consulta.resx">
       <DependentUpon>Consulta.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Consulta_Fideos.resx">
-      <DependentUpon>Consulta_Fideos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Consulta_Galletas.resx">
-      <DependentUpon>Consulta_Galletas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio_Sesion.resx">
       <DependentUpon>Inicio_Sesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modificacion.resx">
       <DependentUpon>Modificacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modificacion_Fideos.resx">
-      <DependentUpon>Modificacion_Fideos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modificacion_galletas.resx">
-      <DependentUpon>Modificacion_galletas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

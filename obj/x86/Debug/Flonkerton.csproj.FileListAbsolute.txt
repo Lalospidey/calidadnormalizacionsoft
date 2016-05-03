@@ -9,8 +9,4 @@ C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flon
 C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Inicio_Sesion.resources
 C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Consulta.resources
 C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Modificacion.resources
-C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Consulta_Fideos.resources
-C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Consulta_Galletas.resources
-C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Modificacion_Fideos.resources
-C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\obj\x86\Debug\Flonkerton.Modificacion_galletas.resources
 C:\Users\gerardo\Desktop\Upiicsa 2016-2\Flonkerton\Flonkerton\bin\Debug\System.Data.SQLite.xml
