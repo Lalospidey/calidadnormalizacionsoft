@@ -28,32 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Consulta));
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Consulta_Principal = new System.Windows.Forms.Label();
             this.tipo_consulta = new System.Windows.Forms.Label();
             this.tipo_consulta2 = new System.Windows.Forms.ComboBox();
             this.Busqueda_tipo = new System.Windows.Forms.Label();
             this.seleccion_boton = new System.Windows.Forms.Button();
             this.panel_principal = new System.Windows.Forms.DataGridView();
             this.Tipo = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edicionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.panel_principal)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // Consulta_Principal
-            // 
-            this.Consulta_Principal.AutoSize = true;
-            this.Consulta_Principal.Location = new System.Drawing.Point(1, -1);
-            this.Consulta_Principal.Name = "Consulta_Principal";
-            this.Consulta_Principal.Size = new System.Drawing.Size(46, 13);
-            this.Consulta_Principal.TabIndex = 1;
-            this.Consulta_Principal.Text = "Archivo ";
             // 
             // tipo_consulta
             // 
@@ -110,6 +98,38 @@
             this.Tipo.Size = new System.Drawing.Size(92, 20);
             this.Tipo.TabIndex = 9;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.edicionToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(435, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.salirToolStripMenuItem});
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // edicionToolStripMenuItem
+            // 
+            this.edicionToolStripMenuItem.Name = "edicionToolStripMenuItem";
+            this.edicionToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.edicionToolStripMenuItem.Text = "Edicion";
+            // 
             // Consulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -121,12 +141,15 @@
             this.Controls.Add(this.Busqueda_tipo);
             this.Controls.Add(this.tipo_consulta2);
             this.Controls.Add(this.tipo_consulta);
-            this.Controls.Add(this.Consulta_Principal);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Consulta";
             this.Text = "Consulta-Flonkerton";
             this.Load += new System.EventHandler(this.Consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panel_principal)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,13 +157,15 @@
 
         #endregion
 
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label Consulta_Principal;
         private System.Windows.Forms.Label tipo_consulta;
         private System.Windows.Forms.ComboBox tipo_consulta2;
         private System.Windows.Forms.Label Busqueda_tipo;
         private System.Windows.Forms.Button seleccion_boton;
         private System.Windows.Forms.DataGridView panel_principal;
         private System.Windows.Forms.TextBox Tipo;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edicionToolStripMenuItem;
     }
 }
