@@ -113,6 +113,7 @@ namespace Flonkerton
             {
               MessageBox.Show(ex.Message);
             }
+            sqliteCon.Close();
             }
             
     }

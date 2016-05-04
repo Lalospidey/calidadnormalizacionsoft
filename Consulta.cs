@@ -16,7 +16,7 @@ namespace Flonkerton
 {
     public partial class Consulta : Form
     {
-        string dbConnectionString = @"Data Source=base.sqlite; Version=3;";
+        string dbConnectionString = @"Data Source=base.sqlite; Version=3; FailIfMissing=True; New=False;Compress=True;";
         public Consulta()
         {
             InitializeComponent();
@@ -35,58 +35,32 @@ namespace Flonkerton
         private void seleccion_boton_Click(object sender, EventArgs e)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            try
-            {
+            
                 sqliteCon.Open();
                if (tipo_consulta2.SelectedItem.ToString()=="Fideos")
                 {
-                    string query = "select * from Tf ";//order by '"+this.Tipo.Text +"'";
-                    SQLiteCommand createCommand = new SQLiteCommand(query, sqliteCon);
-                    createCommand.ExecuteNonQuery();
-                    SQLiteDataReader dr = createCommand.ExecuteReader();
-                    SQLiteDataAdapter da = new SQLiteDataAdapter(createCommand);
-                    DataSet ds = new DataSet();
-                    try
-                    {
-                        da.Fill(ds);
-                        DataTable dt = ds.Tables[0];
-                        this.panel_principal.DataSource = dt;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error");
-                    }
-                   
-                }
+                   string query = "select * from fideo ";//order by '"+this.Tipo.Text +"'";
+                   SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                   DataSet ds = new DataSet();
+                   ds.Reset();
+                   DataTable dt = new DataTable();
+                   db.Fill(ds);
+                   dt = ds.Tables[0];
+                   panel_principal.DataSource = dt;
+                 }
                if (tipo_consulta2.SelectedItem.ToString() == "Galletas")
                {
-                   string query = "select * from Tg";// order by '" + this.Tipo.Text + "'";
-                   SQLiteCommand createCommand = new SQLiteCommand(query, sqliteCon);
-                   createCommand.ExecuteNonQuery();
-                   SQLiteDataReader dr = createCommand.ExecuteReader();
-                   SQLiteDataAdapter da = new SQLiteDataAdapter(createCommand);
+                   string query = "select * from Tg ";//order by '"+this.Tipo.Text +"'";
+                   SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
                    DataSet ds = new DataSet();
-                   try
-                   {
-                       da.Fill(ds);
-                       DataTable dt = ds.Tables[0];
-                       this.panel_principal.DataSource = dt;
-                   }
-                   catch (Exception ex)
-                   {
-                       MessageBox.Show("Error");
-                   }
-                   
-
+                   ds.Reset();
+                   DataTable dt = new DataTable();
+                   db.Fill(ds);
+                   dt = ds.Tables[0];
+                   panel_principal.DataSource = dt;
                }
-               else
-               { MessageBox.Show("No se ha encontrado la consulta"); }
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+               
+            
             
         }
     }
