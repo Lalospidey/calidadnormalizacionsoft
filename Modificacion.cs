@@ -16,7 +16,8 @@ namespace Flonkerton
 {
     public partial class Modificacion : Form
     {
-        //string dbConnectionString = @"Data Source=base.sqlite; Version=3; FailIfMissing=True; New=False;Compress=True;";
+        string dbConnectionString = @"Data Source=base.sqlite; Version=3; FailIfMissing=True; New=False;Compress=True;";
+       
         public Modificacion()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace Flonkerton
         }
         private void Seleccion_modificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
             //get the combobox item
             MyComboBoxItem item = (sender as ComboBox).SelectedItem as MyComboBoxItem;
 
@@ -65,6 +67,29 @@ namespace Flonkerton
 
             //add sub items
             campos_tabla.Items.AddRange(item.SubItems.ToArray());
+            if (Seleccion_modificacion.SelectedItem.ToString() == "Fideos")
+            {
+                
+                string query = "select * from fideo ";//order by '"+this.Tipo.Text +"'";
+                SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                DataSet ds = new DataSet();
+                ds.Reset();
+                DataTable dt = new DataTable();
+                db.Fill(ds);
+                dt = ds.Tables[0];
+                ppm.DataSource = dt;
+            }
+            if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
+            {
+                string query = "select * from Tg ";//order by '"+this.Tipo.Text +"'";
+                SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                DataSet ds = new DataSet();
+                ds.Reset();
+                DataTable dt = new DataTable();
+                db.Fill(ds);
+                dt = ds.Tables[0];
+                ppm.DataSource = dt;
+            }
         }
 
         
