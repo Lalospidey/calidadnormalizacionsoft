@@ -38,6 +38,7 @@
             this.ppm = new System.Windows.Forms.DataGridView();
             this.campo_modificar = new System.Windows.Forms.TextBox();
             this.campos_tabla = new System.Windows.Forms.ComboBox();
+            this.producto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ppm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // boton_selecion
             // 
-            this.boton_selecion.Location = new System.Drawing.Point(445, 22);
+            this.boton_selecion.Location = new System.Drawing.Point(531, 27);
             this.boton_selecion.Name = "boton_selecion";
             this.boton_selecion.Size = new System.Drawing.Size(77, 32);
             this.boton_selecion.TabIndex = 1;
@@ -58,7 +59,7 @@
             // 
             // boton_regresar
             // 
-            this.boton_regresar.Location = new System.Drawing.Point(537, 22);
+            this.boton_regresar.Location = new System.Drawing.Point(614, 27);
             this.boton_regresar.Name = "boton_regresar";
             this.boton_regresar.Size = new System.Drawing.Size(91, 32);
             this.boton_regresar.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(634, 22);
+            this.button1.Location = new System.Drawing.Point(711, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 32);
             this.button1.TabIndex = 3;
@@ -90,7 +91,7 @@
             this.ppm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ppm.Location = new System.Drawing.Point(17, 68);
             this.ppm.Name = "ppm";
-            this.ppm.Size = new System.Drawing.Size(708, 162);
+            this.ppm.Size = new System.Drawing.Size(643, 162);
             this.ppm.TabIndex = 5;
             // 
             // campo_modificar
@@ -109,11 +110,19 @@
             this.campos_tabla.Size = new System.Drawing.Size(125, 21);
             this.campos_tabla.TabIndex = 7;
             // 
+            // producto
+            // 
+            this.producto.Location = new System.Drawing.Point(418, 34);
+            this.producto.Name = "producto";
+            this.producto.Size = new System.Drawing.Size(103, 20);
+            this.producto.TabIndex = 8;
+            // 
             // Modificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 272);
+            this.ClientSize = new System.Drawing.Size(826, 272);
+            this.Controls.Add(this.producto);
             this.Controls.Add(this.campos_tabla);
             this.Controls.Add(this.campo_modificar);
             this.Controls.Add(this.ppm);
@@ -141,5 +150,6 @@
         private System.Windows.Forms.DataGridView ppm;
         private System.Windows.Forms.TextBox campo_modificar;
         private System.Windows.Forms.ComboBox campos_tabla;
+        private System.Windows.Forms.TextBox producto;
     }
 }
