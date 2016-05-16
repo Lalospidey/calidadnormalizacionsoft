@@ -37,7 +37,7 @@
             this.Seleccion_modificacion = new System.Windows.Forms.ComboBox();
             this.ppm = new System.Windows.Forms.DataGridView();
             this.campo_modificar = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.campos_tabla = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ppm)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,7 @@
             this.boton_regresar.TabIndex = 2;
             this.boton_regresar.Text = "Borrar registro";
             this.boton_regresar.UseVisualStyleBackColor = true;
+            this.boton_regresar.Click += new System.EventHandler(this.boton_regresar_Click);
             // 
             // button1
             // 
@@ -73,6 +74,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Agregar registro";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Seleccion_modificacion
             // 
@@ -81,6 +83,7 @@
             this.Seleccion_modificacion.Name = "Seleccion_modificacion";
             this.Seleccion_modificacion.Size = new System.Drawing.Size(109, 21);
             this.Seleccion_modificacion.TabIndex = 4;
+            this.Seleccion_modificacion.SelectedIndexChanged += new System.EventHandler(this.Seleccion_modificacion_SelectedIndexChanged);
             // 
             // ppm
             // 
@@ -97,20 +100,20 @@
             this.campo_modificar.Size = new System.Drawing.Size(124, 20);
             this.campo_modificar.TabIndex = 6;
             // 
-            // comboBox1
+            // campos_tabla
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(132, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(94, 21);
-            this.comboBox1.TabIndex = 7;
+            this.campos_tabla.FormattingEnabled = true;
+            this.campos_tabla.Location = new System.Drawing.Point(132, 30);
+            this.campos_tabla.Name = "campos_tabla";
+            this.campos_tabla.Size = new System.Drawing.Size(94, 21);
+            this.campos_tabla.TabIndex = 7;
             // 
             // Modificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 242);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.campos_tabla);
             this.Controls.Add(this.campo_modificar);
             this.Controls.Add(this.ppm);
             this.Controls.Add(this.Seleccion_modificacion);
@@ -136,6 +139,6 @@
         private System.Windows.Forms.ComboBox Seleccion_modificacion;
         private System.Windows.Forms.DataGridView ppm;
         private System.Windows.Forms.TextBox campo_modificar;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox campos_tabla;
     }
 }
