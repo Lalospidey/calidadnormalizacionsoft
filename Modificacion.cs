@@ -29,11 +29,11 @@ namespace Flonkerton
          List<MyComboBoxItem> cb1Items = new List<MyComboBoxItem>();
             cb1Items.Add(new MyComboBoxItem("Fideos")
             {
-            SubItems = {new MyComboBoxItem("Id_fideos"), new MyComboBoxItem("Tipo"), new MyComboBoxItem("Marca"), new MyComboBoxItem("Precio Paquete"), new MyComboBoxItem("Peso Paquete"), new MyComboBoxItem("Cantidad Paquetes Stock") }
+            SubItems = {new MyComboBoxItem("Id_fideos"), new MyComboBoxItem("Tipo"), new MyComboBoxItem("Marca"), new MyComboBoxItem("Precio_Paquete"), new MyComboBoxItem("Peso_Paquete"), new MyComboBoxItem("Cantidad_Paquetes_Stock") }
             });
             cb1Items.Add(new MyComboBoxItem("Galletas")
             {
-           SubItems = {new MyComboBoxItem("Id_Galletas"),new MyComboBoxItem("Nombre"), new MyComboBoxItem("Sabor") , new MyComboBoxItem("Marca"), new MyComboBoxItem("Precio Paquete") , new MyComboBoxItem("Cantidad Paquete") , new MyComboBoxItem("Cantidad Paquete Stock ")
+           SubItems = {new MyComboBoxItem("Id_Galletas"),new MyComboBoxItem("Nombre"), new MyComboBoxItem("Sabor") , new MyComboBoxItem("Marca"), new MyComboBoxItem("Precio_Paquete") , new MyComboBoxItem("Cantidad_Paquete") , new MyComboBoxItem("Cantidad_Paquete_Stock")
                   }
              });
             //load data items into combobox 1
@@ -42,17 +42,64 @@ namespace Flonkerton
 
         private void boton_selecion_Click(object sender, EventArgs e)
         {
-            
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            SQLiteCommand queryU = new SQLiteCommand("Update " + Seleccion_modificacion.SelectedItem.ToString() + " set '" + campos_tabla.SelectedItem.ToString() + "'='" + campo_modificar.Text + "' where id='" + producto.Text + "'",sqliteCon);
-            try
+            string selectt;
+            selectt = (Seleccion_modificacion.SelectedItem.ToString() == "Fideos") ? "fideo" : "tg";
+            string idss;
+            idss = (selectt == "fideo") ? "Id_Fideos" : "Id_galletas";
+            sqliteCon.Open();
+            if ((selectt == "fideo") && (idss == "Id_Fideos"))
             {
-                queryU.ExecuteNonQuery();
+                SQLiteCommand queryd = new SQLiteCommand("update  fideo set'"+campos_tabla.SelectedItem.ToString() +"' ='"+campo_modificar.Text+"'     where Id_fideos ='" + Int32.Parse(this.producto.Text) + "'", sqliteCon);
+                try
+                {
+                    queryd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                sqliteCon.Close();
             }
-            catch (Exception ex)
+            if (selectt == "tg" && idss == "Id_galletas")
             {
-                throw new Exception(ex.Message);
-            }    
+                SQLiteCommand queryd = new SQLiteCommand("update tg set '" + campos_tabla.SelectedItem.ToString() + "'= '" + campo_modificar.Text + " ' where Id_galletas ='" + Int32.Parse(this.producto.Text) + "'", sqliteCon);
+                try
+                {
+                    queryd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                sqliteCon.Close();
+            }
+            if (Seleccion_modificacion.SelectedItem.ToString() == "Fideos")
+            {
+
+                string query = "select * from fideo ";//order by '"+this.Tipo.Text +"'";
+                SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                DataSet ds = new DataSet();
+                ds.Reset();
+                DataTable dt = new DataTable();
+                db.Fill(ds);
+                dt = ds.Tables[0];
+                ppm.DataSource = dt;
+            }
+            if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
+            {
+                string query = "select * from Tg ";//order by '"+this.Tipo.Text +"'";
+                SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                DataSet ds = new DataSet();
+                ds.Reset();
+                DataTable dt = new DataTable();
+                db.Fill(ds);
+                dt = ds.Tables[0];
+                ppm.DataSource = dt;
+            }
+
+
+
           }
 
         private void button1_Click(object sender, EventArgs e)
@@ -85,8 +132,21 @@ namespace Flonkerton
                 {
                     throw new Exception(ex.Message);
                 }
-                sqliteCon.Close();
+                if (Seleccion_modificacion.SelectedItem.ToString() == "Fideos")
+                {
 
+                    string query = "select * from fideo ";//order by '"+this.Tipo.Text +"'";
+                    SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                    DataSet ds = new DataSet();
+                    ds.Reset();
+                    DataTable dt = new DataTable();
+                    db.Fill(ds);
+                    dt = ds.Tables[0];
+                    ppm.DataSource = dt;
+                }
+                sqliteCon.Close();
+               
+               
              }
                
              if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
@@ -117,18 +177,30 @@ namespace Flonkerton
                     {
                         throw new Exception(ex.Message);
                     }
+                    if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
+                    {
+                        string query = "select * from Tg ";//order by '"+this.Tipo.Text +"'";
+                        SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+                        DataSet ds = new DataSet();
+                        ds.Reset();
+                        DataTable dt = new DataTable();
+                        db.Fill(ds);
+                        dt = ds.Tables[0];
+                        ppm.DataSource = dt;
+                    }
                     sqliteCon.Close();
                 }
+            
             }
       private void boton_regresar_Click(object sender, EventArgs e)
         {
-            SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
+           SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
            string selectt;
            selectt = (Seleccion_modificacion.SelectedItem.ToString() == "Fideos") ? "fideo" : "tg";
            string idss;
-           idss = (selectt == "fideo") ? "Id_fideos" : "Id_galletas";
+           idss = (selectt == "fideo") ? "Id_Fideos" : "Id_galletas";
            sqliteCon.Open();
-           if ((selectt == "fideo") && (idss =="Id_fideos"))
+           if ((selectt == "fideo") && (idss =="Id_Fideos"))
            { SQLiteCommand queryd = new SQLiteCommand("delete from fideo where Id_fideos ='" + Int32.Parse(this.campo_modificar.Text) + "'", sqliteCon);
            try
             {
@@ -151,9 +223,35 @@ namespace Flonkerton
                 throw new Exception(ex.Message);
             }
             sqliteCon.Close();  }
+          if (Seleccion_modificacion.SelectedItem.ToString() == "Fideos")
+          {
+
+              string query = "select * from fideo ";//order by '"+this.Tipo.Text +"'";
+              SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+              DataSet ds = new DataSet();
+              ds.Reset();
+              DataTable dt = new DataTable();
+              db.Fill(ds);
+              dt = ds.Tables[0];
+              ppm.DataSource = dt;
+          }
+          if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
+          {
+              string query = "select * from Tg ";//order by '"+this.Tipo.Text +"'";
+              SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+              DataSet ds = new DataSet();
+              ds.Reset();
+              DataTable dt = new DataTable();
+              db.Fill(ds);
+              dt = ds.Tables[0];
+              ppm.DataSource = dt;
+          }
+      
       }
         private void Seleccion_modificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            campo_modificar.Text = "";
+            producto.Text = "";
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
             //get the combobox item
             MyComboBoxItem item = (sender as ComboBox).SelectedItem as MyComboBoxItem;
