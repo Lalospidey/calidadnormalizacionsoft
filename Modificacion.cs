@@ -141,7 +141,7 @@ namespace Flonkerton
            sqliteCon.Close();
            }
           if(selectt=="tg"&& idss=="Id_galletas")
-          {SQLiteCommand queryd = new SQLiteCommand("delete  from tg where Id_fideos ='"+Int32.Parse( this.campo_modificar.Text) + "'", sqliteCon);
+          {SQLiteCommand queryd = new SQLiteCommand("delete  from tg where Id_galletas ='"+Int32.Parse( this.campo_modificar.Text) + "'", sqliteCon);
           try
             {
                 queryd.ExecuteNonQuery();
