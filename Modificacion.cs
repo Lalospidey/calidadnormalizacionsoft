@@ -44,14 +44,22 @@ namespace Flonkerton
         {
             
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            string query = "Update " + Seleccion_modificacion.SelectedItem.ToString() + " set '" + campos_tabla.SelectedItem.ToString() + "'='" + campo_modificar.Text + "' where id='" + producto.Text + "'";
-            SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+            SQLiteCommand queryU = new SQLiteCommand("Update " + Seleccion_modificacion.SelectedItem.ToString() + " set '" + campos_tabla.SelectedItem.ToString() + "'='" + campo_modificar.Text + "' where id='" + producto.Text + "'",sqliteCon);
+            try
+            {
+                queryU.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }    
           }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (Seleccion_modificacion.SelectedItem.ToString() == "Fideos")
             {
+                SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
               string[] array = new string[6];
                 for (int i = 0; i < array.Length; i++)
                 {
@@ -59,11 +67,29 @@ namespace Flonkerton
                                                   "Fideos",
                                                   "Introduce el " + (i + 1) + " Registro",
                                                   -1, -1);
-                  }}
-                //string txtSQLQuery = "insert into  Fideos (desc) values ('" + txtDesc.Text + "')";
-                //ExecuteQuery(txtSQLQuery);
+                     
+                }
+                SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO fideos (Id_fideos,Tipo,Marca,Precio Paquete, Peso Paquete,Cantidad Paquetes Stockn) VALUES (?,?,?,?,?,?)",sqliteCon);
+                insertSQL.Parameters.Add((array[0]));
+                insertSQL.Parameters.Add((array[1]));
+                insertSQL.Parameters.Add((array[2]));
+                insertSQL.Parameters.Add((array[3]));
+                insertSQL.Parameters.Add((array[4]));
+                insertSQL.Parameters.Add((array[5]));
+                try
+                {
+                    insertSQL.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }    
+            
+             }
+               
              if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
                 {
+                    SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
                     string[] arrayg = new string[7];
                     for (int i = 0; i < arrayg.Length; i++)
                     {
@@ -72,22 +98,37 @@ namespace Flonkerton
                                                       "Introduce el " + (i + 1) + " Registro",
                                                       -1, -1);
                     }
+                    SQLiteCommand insertSQLg = new SQLiteCommand("INSERT INTO Galletas (Id_Galletas,Nombre,Sabor,Marca,Precio_Paquete,Cantidad_Paquete,Cantidad_Paquete_Stock) VALUES (?,?,?,?,?,?,?)", sqliteCon);
+                    insertSQLg.Parameters.Add((arrayg[0]));
+                    insertSQLg.Parameters.Add((arrayg[1]));
+                    insertSQLg.Parameters.Add((arrayg[2]));
+                    insertSQLg.Parameters.Add((arrayg[3]));
+                    insertSQLg.Parameters.Add((arrayg[4]));
+                    insertSQLg.Parameters.Add((arrayg[5]));
+                    insertSQLg.Parameters.Add((arrayg[6]));
+                    try
+                    {
+                        insertSQLg.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.Message);
+                    }    
 
                 }
             }
-        
-          //  SubItems = {new MyComboBoxItem("Id_fideos"), new MyComboBoxItem("Tipo"), new MyComboBoxItem("Marca"), new MyComboBoxItem("Precio Paquete"), new MyComboBoxItem("Peso Paquete"), new MyComboBoxItem("Cantidad Paquetes Stock") }
-            
-            //SubItems = {new MyComboBoxItem("Id_Galletas"),new MyComboBoxItem("Nombre"), new MyComboBoxItem("Sabor") , new MyComboBoxItem("Marca"), new MyComboBoxItem("Precio Paquete") , new MyComboBoxItem("Cantidad Paquete") , new MyComboBoxItem("Cantidad Paquete Stock "
-
-
-        
-
-        private void boton_regresar_Click(object sender, EventArgs e)
+      private void boton_regresar_Click(object sender, EventArgs e)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            string query = "delete * from'"+Seleccion_modificacion.SelectedItem.ToString() +"'where'"+this.campo_modificar.Text +"'";
-            SQLiteDataAdapter db = new SQLiteDataAdapter(query, sqliteCon);
+            SQLiteCommand queryd =new SQLiteCommand( "delete * from'"+Seleccion_modificacion.SelectedItem.ToString() +"'where'"+this.campo_modificar.Text +"'",sqliteCon);
+            try
+            {
+                queryd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }    
         }
         private void Seleccion_modificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
