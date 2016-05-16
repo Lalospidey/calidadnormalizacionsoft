@@ -91,7 +91,7 @@
             this.ppm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ppm.Location = new System.Drawing.Point(17, 68);
             this.ppm.Name = "ppm";
-            this.ppm.Size = new System.Drawing.Size(643, 162);
+            this.ppm.Size = new System.Drawing.Size(785, 162);
             this.ppm.TabIndex = 5;
             // 
             // campo_modificar

@@ -123,16 +123,35 @@ namespace Flonkerton
       private void boton_regresar_Click(object sender, EventArgs e)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
-            SQLiteCommand queryd =new SQLiteCommand( "delete * from'"+Seleccion_modificacion.SelectedItem.ToString() +"'where'"+this.campo_modificar.Text +"'",sqliteCon);
-            try
+           string selectt;
+           selectt = (Seleccion_modificacion.SelectedItem.ToString() == "Fideos") ? "fideo" : "tg";
+           string idss;
+           idss = (selectt == "fideo") ? "Id_fideos" : "Id_galletas";
+           sqliteCon.Open();
+           if ((selectt == "fideo") && (idss =="Id_fideos"))
+           { SQLiteCommand queryd = new SQLiteCommand("delete from fideo where Id_fideos ='" + Int32.Parse(this.campo_modificar.Text) + "'", sqliteCon);
+           try
             {
                 queryd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
-            }    
-        }
+            }
+           sqliteCon.Close();
+           }
+          if(selectt=="tg"&& idss=="Id_galletas")
+          {SQLiteCommand queryd = new SQLiteCommand("delete  from tg where Id_fideos ='"+Int32.Parse( this.campo_modificar.Text) + "'", sqliteCon);
+          try
+            {
+                queryd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            sqliteCon.Close();  }
+      }
         private void Seleccion_modificacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             SQLiteConnection sqliteCon = new SQLiteConnection(dbConnectionString);
