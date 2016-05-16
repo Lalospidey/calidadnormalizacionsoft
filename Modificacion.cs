@@ -69,13 +69,14 @@ namespace Flonkerton
                                                   -1, -1);
                      
                 }
-                SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO fideos (Id_fideos,Tipo,Marca,Precio Paquete, Peso Paquete,Cantidad Paquetes Stockn) VALUES (?,?,?,?,?,?)",sqliteCon);
-                insertSQL.Parameters.Add((array[0]));
-                insertSQL.Parameters.Add((array[1]));
-                insertSQL.Parameters.Add((array[2]));
-                insertSQL.Parameters.Add((array[3]));
-                insertSQL.Parameters.Add((array[4]));
-                insertSQL.Parameters.Add((array[5]));
+                sqliteCon.Open();
+                SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO fideo (Id_fideos,Tipo,Marca,Precio_Paquete, Peso_Paquete,Cantidades_paquetes_stock) VALUES (?,?,?,?,?,?)",sqliteCon);
+                insertSQL.Parameters.AddWithValue("Id_fideos",(array[0]));
+                insertSQL.Parameters.AddWithValue("Tipo",(array[1]));
+                insertSQL.Parameters.AddWithValue("Marca",(array[2]));
+                insertSQL.Parameters.AddWithValue("Precio_Paquete",(array[3]));
+                insertSQL.Parameters.AddWithValue("Peso_Paquete",(array[4]));
+                insertSQL.Parameters.AddWithValue("Cantidad_Paquetes_Stock",(array[5]));
                 try
                 {
                     insertSQL.ExecuteNonQuery();
@@ -83,8 +84,9 @@ namespace Flonkerton
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
-                }    
-            
+                }
+                sqliteCon.Close();
+
              }
                
              if (Seleccion_modificacion.SelectedItem.ToString() == "Galletas")
@@ -98,14 +100,15 @@ namespace Flonkerton
                                                       "Introduce el " + (i + 1) + " Registro",
                                                       -1, -1);
                     }
-                    SQLiteCommand insertSQLg = new SQLiteCommand("INSERT INTO Galletas (Id_Galletas,Nombre,Sabor,Marca,Precio_Paquete,Cantidad_Paquete,Cantidad_Paquete_Stock) VALUES (?,?,?,?,?,?,?)", sqliteCon);
-                    insertSQLg.Parameters.Add((arrayg[0]));
-                    insertSQLg.Parameters.Add((arrayg[1]));
-                    insertSQLg.Parameters.Add((arrayg[2]));
-                    insertSQLg.Parameters.Add((arrayg[3]));
-                    insertSQLg.Parameters.Add((arrayg[4]));
-                    insertSQLg.Parameters.Add((arrayg[5]));
-                    insertSQLg.Parameters.Add((arrayg[6]));
+                    sqliteCon.Open();
+                    SQLiteCommand insertSQLg = new SQLiteCommand("INSERT INTO Tg (Id_galletas,nombre,sabor,marca,precio_paquete,cantidad_paquete,cantidad_paquete_stock) VALUES (?,?,?,?,?,?,?)", sqliteCon);
+                    insertSQLg.Parameters.AddWithValue("Id_galletas",(arrayg[0]));
+                    insertSQLg.Parameters.AddWithValue("nombre",(arrayg[1]));
+                    insertSQLg.Parameters.AddWithValue("sabor",(arrayg[2]));
+                    insertSQLg.Parameters.AddWithValue("marca",(arrayg[3]));
+                    insertSQLg.Parameters.AddWithValue("precio_paquete",(arrayg[4]));
+                    insertSQLg.Parameters.AddWithValue("cantidad_paquete",(arrayg[5]));
+                    insertSQLg.Parameters.AddWithValue("cantidad_paquete_stock",(arrayg[6]));
                     try
                     {
                         insertSQLg.ExecuteNonQuery();
@@ -113,8 +116,8 @@ namespace Flonkerton
                     catch (Exception ex)
                     {
                         throw new Exception(ex.Message);
-                    }    
-
+                    }
+                    sqliteCon.Close();
                 }
             }
       private void boton_regresar_Click(object sender, EventArgs e)
