@@ -92,6 +92,11 @@ namespace Flonkerton
             }
         }
 
+        private void campo_modificar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         
        
         }

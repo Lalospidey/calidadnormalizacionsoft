@@ -48,7 +48,7 @@
             // 
             // boton_selecion
             // 
-            this.boton_selecion.Location = new System.Drawing.Point(372, 19);
+            this.boton_selecion.Location = new System.Drawing.Point(445, 22);
             this.boton_selecion.Name = "boton_selecion";
             this.boton_selecion.Size = new System.Drawing.Size(77, 32);
             this.boton_selecion.TabIndex = 1;
@@ -58,7 +58,7 @@
             // 
             // boton_regresar
             // 
-            this.boton_regresar.Location = new System.Drawing.Point(472, 18);
+            this.boton_regresar.Location = new System.Drawing.Point(537, 22);
             this.boton_regresar.Name = "boton_regresar";
             this.boton_regresar.Size = new System.Drawing.Size(91, 32);
             this.boton_regresar.TabIndex = 2;
@@ -68,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(581, 19);
+            this.button1.Location = new System.Drawing.Point(634, 22);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 32);
             this.button1.TabIndex = 3;
@@ -79,9 +79,9 @@
             // Seleccion_modificacion
             // 
             this.Seleccion_modificacion.FormattingEnabled = true;
-            this.Seleccion_modificacion.Location = new System.Drawing.Point(17, 29);
+            this.Seleccion_modificacion.Location = new System.Drawing.Point(17, 33);
             this.Seleccion_modificacion.Name = "Seleccion_modificacion";
-            this.Seleccion_modificacion.Size = new System.Drawing.Size(109, 21);
+            this.Seleccion_modificacion.Size = new System.Drawing.Size(131, 21);
             this.Seleccion_modificacion.TabIndex = 4;
             this.Seleccion_modificacion.SelectedIndexChanged += new System.EventHandler(this.Seleccion_modificacion_SelectedIndexChanged);
             // 
@@ -90,29 +90,30 @@
             this.ppm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ppm.Location = new System.Drawing.Point(17, 68);
             this.ppm.Name = "ppm";
-            this.ppm.Size = new System.Drawing.Size(655, 162);
+            this.ppm.Size = new System.Drawing.Size(708, 162);
             this.ppm.TabIndex = 5;
             // 
             // campo_modificar
             // 
-            this.campo_modificar.Location = new System.Drawing.Point(232, 31);
+            this.campo_modificar.Location = new System.Drawing.Point(285, 34);
             this.campo_modificar.Name = "campo_modificar";
             this.campo_modificar.Size = new System.Drawing.Size(124, 20);
             this.campo_modificar.TabIndex = 6;
+            this.campo_modificar.TextChanged += new System.EventHandler(this.campo_modificar_TextChanged);
             // 
             // campos_tabla
             // 
             this.campos_tabla.FormattingEnabled = true;
-            this.campos_tabla.Location = new System.Drawing.Point(132, 30);
+            this.campos_tabla.Location = new System.Drawing.Point(154, 33);
             this.campos_tabla.Name = "campos_tabla";
-            this.campos_tabla.Size = new System.Drawing.Size(94, 21);
+            this.campos_tabla.Size = new System.Drawing.Size(125, 21);
             this.campos_tabla.TabIndex = 7;
             // 
             // Modificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 242);
+            this.ClientSize = new System.Drawing.Size(737, 272);
             this.Controls.Add(this.campos_tabla);
             this.Controls.Add(this.campo_modificar);
             this.Controls.Add(this.ppm);
